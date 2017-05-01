@@ -11,6 +11,6 @@
 #endif
 
 
-FOUNDATION_EXPORT double Pods_TwitVersionNumber;
-FOUNDATION_EXPORT const unsigned char Pods_TwitVersionString[];
+FOUNDATION_EXPORT double Pods_twitter_clientVersionNumber;
+FOUNDATION_EXPORT const unsigned char Pods_twitter_clientVersionString[];
 

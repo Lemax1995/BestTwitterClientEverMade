@@ -50,10 +50,10 @@ class TweetCell: UITableViewCell {
         profilePictureImageView.setImageWith(tweet.authorProfilePicURL! as URL)
         profilePictureImageView.layer.cornerRadius = 5
         profilePictureImageView.clipsToBounds = true
-        authorNameLabel.text = tweet.author as? String
-        authorScreennameLabel.text = "@" + (tweet.screenname as! String)
+        authorNameLabel.text = tweet.author as String?
+        authorScreennameLabel.text = "@" + (tweet.screenname! as String)
 
-        tweetContentsLabel.text = tweet.text as? String
+        tweetContentsLabel.text = tweet.text
 
         let urls = tweet.urls
         let media = tweet.media
@@ -87,18 +87,17 @@ class TweetCell: UITableViewCell {
                     revealPhoto()
 
                     let mediaurl = medium["media_url_https"] as! String
-
+                    
+                    
                     mediaImageHeightConstraint.isActive = false
-
                     mediaImageView.layer.cornerRadius = 5
                     mediaImageView.clipsToBounds = true
-                    mediaImageView.setImageWith(URLRequest(url: URL(string: mediaurl)!), placeholderImage: nil, success: { (r: URLRequest, u: HTTPURLResponse?, i: UIImage) -> Void in
-                        // success
-                        self.mediaImageView.image = i
+
+//                    print(mediaurl)
+                    DispatchQueue.main.async {
+                        self.mediaImageView.setImageWith(URL(string: mediaurl)!)
                         self.delegate?.reloadTableCellAtIndexPath(self, indexPath: self.indexPath)
-                        }, failure: { (r: URLRequest, u: HTTPURLResponse?, e: NSError) -> Void in
-                            // error
-                    } as! (URLRequest, HTTPURLResponse?, Error) -> Void)
+                    }
                 }
             }
         }

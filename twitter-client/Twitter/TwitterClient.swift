@@ -230,11 +230,16 @@ final class TwitterClient: BDBOAuth1SessionManager {
         guard text.characters.count > 0 else {
             return
         }
-        let params = ["status": text, "in_reply_to_status_id": Int(replyToTweetID!)] as [String : Any]
-        post("1.1/statuses/update.json", parameters: params, success: { (operation: URLSessionDataTask, response: AnyObject?) -> Void in
+        var params = Dictionary<String, Any>()
+        params["status"] = text
+        if replyToTweetID != nil
+        {
+            params["in_reply_to_status_id"] = Int(replyToTweetID!)
+        }
+        post("1.1/statuses/update.json", parameters: params, success: { (operation, response) in
             let tweet = Tweet(dictionary: response as! NSDictionary)
             success(tweet)
-        } as! (URLSessionDataTask, Any?) -> Void)
+        })
     }
 
     func getUserByScreenname(screenname: NSString, success: @escaping (User) -> (), failure: ((NSError) -> ())? = nil) {

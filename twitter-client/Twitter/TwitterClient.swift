@@ -186,6 +186,16 @@ final class TwitterClient: BDBOAuth1SessionManager {
         } as! (URLSessionDataTask?, Error) -> Void)
     }
 
+//    func populateTweetByID(TweetID: Int, completion: ((tweet: Tweet?, error: NSError?) -> (Void))? = nil) {
+//        get("1.1/statuses/show.json?id=\(TweetID)", parameters: nil, success: { (task: NSURLSessionDataTask, response: AnyObject?) -> Void in
+//            let dictionary = response as! NSDictionary
+//            let tweet = Tweet(dictionary: dictionary)
+//            completion?(tweet: tweet, error: nil)
+//        }, failure: { (task: NSURLSessionDataTask?, error: NSError) -> Void in
+//            completion?(tweet: nil, error: error)
+//        })
+//    }
+    
     func populateTweetByID(TweetID: Int, completion: ((_ tweet: Tweet?, _ error: NSError?) -> (Void))? = nil) {
         get("1.1/statuses/show.json?id=\(TweetID)", parameters: nil, success: { (task: URLSessionDataTask, response: AnyObject?) -> Void in
             let dictionary = response as! NSDictionary

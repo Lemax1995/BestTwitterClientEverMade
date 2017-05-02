@@ -12,7 +12,7 @@ final class Tweet: NSObject {
 
     // MARK: - Properties
     var TweetID: NSNumber!
-    var screenname: NSString?
+    var screenname: String?
     var author: NSString?
     var authorProfilePicURL: URL?
 
@@ -61,7 +61,7 @@ final class Tweet: NSObject {
 
         urls = (dictionary["entities"] as? NSDictionary)?["urls"] as? [NSDictionary]
         media = (dictionary["entities"] as? NSDictionary)?["media"] as? [NSDictionary]
-        screenname = (dictionary["user"] as! NSDictionary)["screen_name"] as? NSString
+        screenname = (dictionary["user"] as! NSDictionary)["screen_name"] as? String
         author = (dictionary["user"] as! NSDictionary)["name"] as? NSString
         authorProfilePicURL = URL(string: ((dictionary["user"] as! NSDictionary)["profile_image_url_https"] as! String).replace("normal.png", withString: "bigger.png"))!
 

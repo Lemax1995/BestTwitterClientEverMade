@@ -51,7 +51,7 @@ class TweetCell: UITableViewCell {
         profilePictureImageView.layer.cornerRadius = 5
         profilePictureImageView.clipsToBounds = true
         authorNameLabel.text = tweet.author as String?
-        authorScreennameLabel.text = "@" + (tweet.screenname! as String)
+        authorScreennameLabel.text = "@" + (tweet.screenname!)
 
         tweetContentsLabel.text = tweet.text
 
@@ -146,12 +146,12 @@ class TweetCell: UITableViewCell {
             // deselect
             sender.deselect()
             tweet.retweeted = false
-            retweetCountLabel.text = String(tweet.retweetCount) ?? ""
+            retweetCountLabel.text = String(tweet.retweetCount) 
         } else {
             // select with animation
             sender.select()
             tweet.retweeted = true
-            retweetCountLabel.text = String(tweet.retweetCount) ?? ""
+            retweetCountLabel.text = String(tweet.retweetCount) 
         }
     }
 
@@ -160,12 +160,12 @@ class TweetCell: UITableViewCell {
             // deselect
             sender.deselect()
             tweet.favorited = false
-            favoriteCountLabel.text = String(tweet.favoritesCount) ?? ""
+            favoriteCountLabel.text = String(tweet.favoritesCount) 
         } else {
             // select with animation
             sender.select()
             tweet.favorited = true
-            favoriteCountLabel.text = String(tweet.favoritesCount) ?? ""
+            favoriteCountLabel.text = String(tweet.favoritesCount) 
         }
     }
 
@@ -180,7 +180,7 @@ class TweetCell: UITableViewCell {
 
         authorNameLabel.layer.cornerRadius = 5
         authorNameLabel.backgroundColor = UIColor.lightGray
-        self.delegate!.openProfile(tweet.screenname!)
+        self.delegate!.openProfile(tweet.screenname! as NSString)
         delay(1.0) {
             self.authorNameLabel.backgroundColor = UIColor.clear
         }

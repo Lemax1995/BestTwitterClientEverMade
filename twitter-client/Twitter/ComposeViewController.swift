@@ -48,8 +48,8 @@ final class ComposeViewController: UIViewController {
 
         inputText.delegate = self
 
-        nameLabel.text = User.currentUser?.name as? String
-        screennameLabel.text = "@" + (User.currentUser?.screenname as! String)
+        nameLabel.text = User.currentUser?.name as String?
+        screennameLabel.text = "@" + (User.currentUser?.screenname! as! String)
 
         let navigationBar = self.navigationController!.navigationBar
         let charCountFrame = CGRect(x: 20, y: 0, width: navigationBar.frame.width/2, height: navigationBar.frame.height)

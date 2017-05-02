@@ -44,7 +44,7 @@ class TweetTableViewController: UIViewController {
     fileprivate var tweets: [Tweet]? {
         didSet {
             if tweets?.count > 0 {
-                lastTweetId = tweets![tweets!.endIndex - 1].TweetID as Int
+                lastTweetId = tweets![tweets!.endIndex - 1].TweetID as? Int
             }
         }
     }

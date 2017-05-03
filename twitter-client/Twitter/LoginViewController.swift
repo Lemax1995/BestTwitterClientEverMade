@@ -29,7 +29,8 @@ final class LoginViewController: UIViewController {
         // Do any additional setup after loading the view.
 
         ButtonContainerView.layer.cornerRadius = 5
-
+        ButtonContainerView.clipsToBounds = true
+        
         [ButtonContainerView, WelcomeLabel, SubtitleLabel].forEach { $0.alpha = 0 }
 
         UIApplication.shared.statusBarStyle = .lightContent

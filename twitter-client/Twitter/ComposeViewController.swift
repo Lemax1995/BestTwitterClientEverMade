@@ -27,9 +27,6 @@ final class ComposeViewController: UIViewController {
     let placeholderTextColor = UIColor(red: 220/255.0, green: 220/255.0, blue: 220/255.0, alpha: 1)
 
     // MARK: - IBOutlets
-    @IBOutlet var profileImageView: UIImageView!
-    @IBOutlet var nameLabel: UILabel!
-    @IBOutlet var screennameLabel: UILabel!
     @IBOutlet var inputText: UITextView!
     @IBOutlet var replyScreennameLabel: UILabel!
 
@@ -43,13 +40,7 @@ final class ComposeViewController: UIViewController {
             disableSending()
         }
 
-        profileImageView.setImageWith((User.currentUser?.profileUrl)! as URL)
-        profileImageView.layer.cornerRadius = 5
-
         inputText.delegate = self
-
-        nameLabel.text = User.currentUser?.name as String?
-        screennameLabel.text = "@" + (User.currentUser?.screenname! as! String)
 
         let navigationBar = self.navigationController!.navigationBar
         let charCountFrame = CGRect(x: 20, y: 0, width: navigationBar.frame.width/2, height: navigationBar.frame.height)

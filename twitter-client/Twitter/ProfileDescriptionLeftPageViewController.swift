@@ -29,7 +29,7 @@ final class ProfileDescriptionLeftPageViewController: UIViewController {
 
     @IBOutlet var imageLockIcon: UIImageView!
     @IBOutlet var imageCogIcon: UIImageView!
-    @IBOutlet var imageProfileOptions: UIImageView!
+//    @IBOutlet var imageProfileOptions: UIImageView!
 
     // MARK: - Lifecycle Methods
     override func viewDidLoad() {
@@ -69,10 +69,10 @@ final class ProfileDescriptionLeftPageViewController: UIViewController {
         followingCountLabel.text = Double(followingCount!).abbreviation
 
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(profileCogMenu))
-        imageCogIcon.isUserInteractionEnabled = true
-        imageCogIcon.addGestureRecognizer(tapGestureRecognizer)
-
-        [imageProfileOptions, imageCogIcon].forEach { $0.isHidden = (user.screenname != User.currentUser?.screenname) }
+//        imageCogIcon.isUserInteractionEnabled = true
+//        imageCogIcon.addGestureRecognizer(tapGestureRecognizer)
+//
+//        [imageProfileOptions, imageCogIcon].forEach { $0.isHidden = (user.screenname != User.currentUser?.screenname) }
     }
 
     // MARK: - Private Methods

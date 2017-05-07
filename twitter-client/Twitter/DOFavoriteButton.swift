@@ -2,13 +2,8 @@
 //  DOFavoriteButton.swift
 //  DOFavoriteButton
 //
-//  Created by Daiki Okumura on 2015/07/09.
-//  Copyright (c) 2015 Daiki Okumura. All rights reserved.
-//
-//  Modified by Tejen Patel on 02/27/2016.
-//
-//  This software is released under the MIT License.
-//  http://opensource.org/licenses/mit-license.php
+//  Created by Alexander Svertlichny and Grigory Setezhev.
+//  Copyright © 2017 MMCS SFEDU. All rights reserved.
 //
 
 import UIKit

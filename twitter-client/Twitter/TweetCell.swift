@@ -2,8 +2,8 @@
 //  TweetCell.swift
 //  Twitter
 //
-//  Created by Tejen Hasmukh Patel on 3/3/16.
-//  Copyright © 2016 Tejen. All rights reserved.
+//  Created by Alexander Svertlichny and Grigory Setezhev.
+//  Copyright © 2017 MMCS SFEDU. All rights reserved.
 //
 
 import UIKit

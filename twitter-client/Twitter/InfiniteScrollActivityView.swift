@@ -2,7 +2,8 @@
 //  InfiniteScrollActivityView.swift
 //  Twitter
 //
-//  Derived from course content provided by CodePath iOS University
+//  Created by Alexander Svertlichny and Grigory Setezhev.
+//  Copyright © 2017 MMCS SFEDU. All rights reserved.
 //
 
 import UIKit

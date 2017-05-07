@@ -96,13 +96,14 @@ final class ProfileViewController: TweetTableViewController {
         profileImageView.clipsToBounds = true
         [profileImageView, profileImageSuperview].forEach { $0.layer.cornerRadius = 5 }
 
+        //!!!Tweets are being published if this is commented, I am not sure it's needed
         if user.screenname != User.currentUser?.screenname {
-            let tapGestureRecognizer2 = UITapGestureRecognizer(target: self, action: #selector(closeProfileModal))
-            closeModalButton.isUserInteractionEnabled = true
-            closeModalButton.addGestureRecognizer(tapGestureRecognizer2)
-            closeModalButton.isHidden = false
-        } else {
-            closeModalButton.isHidden = true
+           let tapGestureRecognizer2 = UITapGestureRecognizer(target: self, action: #selector(closeProfileModal))
+        //    closeModalButton.isUserInteractionEnabled = true
+         //   closeModalButton.addGestureRecognizer(tapGestureRecognizer2)
+           // closeModalButton.isHidden = false
+       } else {
+           // closeModalButton.isHidden = true
         }
     }
 

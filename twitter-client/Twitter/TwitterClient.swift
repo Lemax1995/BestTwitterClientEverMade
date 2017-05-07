@@ -230,7 +230,11 @@ final class TwitterClient: BDBOAuth1SessionManager {
         guard text.characters.count > 0 else {
             return
         }
-        let params = ["status": text, "in_reply_to_status_id": Int(replyToTweetID!)] as [String : Any]
+        var params = ["status": text as AnyObject]
+        if let replyToTweetID = replyToTweetID {
+            params["in_reply_to_status_id"] = replyToTweetID as AnyObject
+        }
+
         self.post("1.1/statuses/update.json", parameters: params, success: { (operation: URLSessionDataTask, response: AnyObject?) -> Void in
             let tweet = Tweet(dictionary: response as! NSDictionary)
             success(tweet)

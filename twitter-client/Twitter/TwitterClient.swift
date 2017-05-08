@@ -155,14 +155,25 @@ final class TwitterClient: BDBOAuth1SessionManager {
         if maxId != nil {
             params["max_id"] = maxId
         }
-
-        self.get("1.1/statuses/user_timeline.json", parameters: params, success: { (task: URLSessionDataTask, response: AnyObject?) -> Void in
+        
+        self.get(
+            "/1.1/statuses/user_timeline.json",
+            parameters: params,
+            progress: nil,
+            success: { (task, response) in
+                let tweetsArray = response as! [NSDictionary]
+                let tweets = Tweet.tweetsWithArray(tweetsArray)
+                success(tweets)
+        }
+        )
+        
+    /**  self.get("1.1/statuses/user_timeline.json", parameters: params, success: { (task: URLSessionDataTask, response: AnyObject?) -> Void in
             let dictionaries = response as! [NSDictionary]
             let tweets = Tweet.tweetsWithArray(dictionaries)
             success(tweets)
         } as? (URLSessionDataTask, Any?) -> Void, failure: { (task: URLSessionDataTask?, error: NSError) -> Void in
             failure(error)
-        } as? (URLSessionDataTask?, Error) -> Void)
+        } as? (URLSessionDataTask?, Error) -> Void) */
     }
 
     func favorite(params: NSDictionary?, favorite: Bool, completion: @escaping (_ tweet: Tweet?, _ error: NSError?) -> (Void) = {_, _ in }) {

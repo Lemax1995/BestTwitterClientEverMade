@@ -4,6 +4,8 @@
 <dict>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
+	<key>CFBundleDisplayName</key>
+	<string>BestTwitterClientEverMade</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -24,10 +26,10 @@
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
 			<key>CFBundleURLName</key>
-			<string>com.tejen.codepath.Twitter</string>
+			<string>com.mmcs.twitter</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>twitterTejen</string>
+				<string>twittermmcs</string>
 			</array>
 		</dict>
 	</array>

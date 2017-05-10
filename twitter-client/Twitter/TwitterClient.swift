@@ -14,8 +14,8 @@ final class TwitterClient: BDBOAuth1SessionManager {
     // MARK: Constants
     static let sharedInstance = TwitterClient(
         baseURL: URL(string: "https://api.twitter.com"),
-        consumerKey: "U04FBOTu0NpvIxZnxehbXjqE3",
-        consumerSecret: "cT8OrcKsG3kXTC8QLYXmwm1iUECvVqc0VHnq8NhUAMpytm7Uh8"
+        consumerKey: "Fe904sDOirYpUtLTf5CJTqsaA",
+        consumerSecret: "lazODNqWeR6BwxjHKThNcn6hZ1JaPeTnzIKPEqWlS1MR2DaKpw"
     )
 
     // MARK: Private Properties
@@ -47,7 +47,7 @@ final class TwitterClient: BDBOAuth1SessionManager {
         loginFailure = failure
         
         deauthorize()
-        fetchRequestToken(withPath: "oauth/request_token", method: "GET", callbackURL: URL(string: "twitterTejen://oauth")!, scope: nil, success: { (requestToken: BDBOAuth1Credential!) -> Void in
+        fetchRequestToken(withPath: "oauth/request_token", method: "GET", callbackURL: URL(string: "twittermmcs://oauth")!, scope: nil, success: { (requestToken: BDBOAuth1Credential!) -> Void in
             let url = URL(string: "https://api.twitter.com/oauth/authorize?oauth_token="+requestToken.token)!
             UIApplication.shared.openURL(url)
         }, failure: { (error: Error!) -> Void in
